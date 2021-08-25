@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.5.5+commit.47a71e8f"
+		"version": "0.5.0+commit.1d4f565a"
 	},
 	"language": "Solidity",
 	"output": {
@@ -417,9 +417,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"BuddyToken.sol": "BuddyToken"
+			"BuddyToken.sol": "ArcadeToken"
 		},
-		"evmVersion": "petersburg",
+		"evmVersion": "byzantium",
 		"libraries": {},
 		"optimizer": {
 			"enabled": false,
@@ -429,9 +429,9 @@
 	},
 	"sources": {
 		"BuddyToken.sol": {
-			"keccak256": "0x61dac1181cae4e4d53b0b2dcc2c129e98a02f0e82ef4ae965b33ffd441f33b86",
+			"keccak256": "0x7c3b983748fa419c1d95e64a9eb6d18cf1b56aed644846108ce51270a2c74434",
 			"urls": [
-				"bzzr://d4904c110c67dca00922de304849ffd8da346a48baad616f923ed3b5ee490230"
+				"bzzr://79c28340bc3ccca111aba44fc83f4c2e75501fb0e62c8cd020f188d800e4fe12"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/GSN/Context.sol": {
