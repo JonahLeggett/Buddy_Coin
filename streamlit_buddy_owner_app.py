@@ -1,3 +1,4 @@
+#Import required libraries
 import os
 import json
 from typing import Container
@@ -6,13 +7,16 @@ from pathlib import Path
 from dotenv import load_dotenv
 import streamlit as st
 
+#Load in the .env file
 load_dotenv()
 
+#Defining and connecting the Web3 provider
 w3 = Web3(Web3.HTTPProvider(os.getenv("WEB3_PROVIDER_URI")))
 
+#Create a function to load the contract into the pp
 @st.cache(allow_output_mutation=True)
 def load_contract():
-    with open(Path('./contracts/compiled/buddy_abi.json')) as f:
+    with open(Path('./artifacts/BuddyTokenCrowdsale.json')) as f:
         buddy_abi = json.load(f)
     
     contract_address = os.getenv("SMART_CONTRACT_ADDRESS")
@@ -24,9 +28,43 @@ def load_contract():
 
     return contract
 
+#Setting a variable 'contract' to the smart contract loaded in with Web3
+contract = load_contract()
 
 
-st.title('Buddy Crowdsale')
+
+st.title('Welcome to the Purchasing App')
+
+st.header('What would you like to do today?')
+st.button('Purchase Product')
+st.button('Purchase Buddy Tokens')
+st.button('Return/Exchanges')
+
+
+
+st.header('Purchase Order')
+st.write('Please input your purchase in the sections below:')
+st.text_input('Customer Name')
+st.text_input('Product Type')
+st.text_input('Unit Amount (Weight)')
+st.text_input('Customer Name')
+st.text_input('Customer Name')
+
+
+#Deploy smart contract to sell product in exchange for BUD Tokens
+#Allow entry for information such as:
+#Customer Name
+#Product Type
+#Product Description
+#Unit Amount (weight/size)
+#USD price
+#BUD Token price
+#Timestamp
+#Allow option to return ETHER to customer address in event of return/exchange
+#View customer account balances
+#Transfer 
+#Mint new Tokens
+#View Balance of owner’s ETHER wallet
 
 st.header('Product Pricing')
 st.write('1/8 oz = ')
