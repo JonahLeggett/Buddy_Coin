@@ -1,4 +1,10 @@
-## 
+## BUDDY Token
+
+☑️
+
+<img width="679" alt="Screen Shot 2021-08-31 at 1 38 04 AM" src="https://user-images.githubusercontent.com/80833988/131470831-e90a70f8-590f-4645-be89-08d6a6e7e278.png">
+
+
 > "
 "
 
@@ -67,7 +73,7 @@
   * BuddyNFT.sol -
 
 - Following video is demonstrating the application 
-- 
+
 
 
 #### Documentation 
@@ -75,16 +81,10 @@
 
 * GitHub README.md file includes a concise project overview. We followed step by step [Technical requirements](https://courses.bootcampspot.com/courses/740/pages/23-dot-23-dot-5-technical-requirements?module_item_id=204832) for grading team convenience.
 
-* GitHub README.md file includes detailed usage and installation instructions [How to install]()
+* GitHub README.md file includes detailed usage and installation instructions [How to install](https://github.com/JonahLeggett/Buddy_Token#how-to-install)
 * GitHub README.md file includes examples of deployment, the application .
 
-
-
-## Presentation 
-
-
-
-### How to install
+## How to install
 
 ##### Repository
 
@@ -99,28 +99,35 @@ git clone https://github.com/JonahLeggett/Buddy_Token.git
 
 Now you can find repo on your desktop
 
+## Presentation 
+
+
+
+
+
 
 
 
 
 ## Team
-📩 [Natalia Burrey](https://github.com/nataliaburrey) *☎️ +1(805)722-2619 📧 nataliaburrey@gmail.com
+
+<img width="371" alt="Screen Shot 2021-08-31 at 1 53 55 AM" src="https://user-images.githubusercontent.com/80833988/131473263-95a1f694-a1dd-4147-a5a7-a3fa49372d58.png">
+
+
 📩 [Jonah Leggett](https://github.com/JonahLeggett) *☎️ +1(415) 430-8265 📧 Jonah.Leggett@gmail.com
 📩 [Miguel Ortega](https://github.com/Miggs00) *☎️ +1(209) 417-7944 📧 mortega0014@gmail.com
+📩 [Natalia Burrey](https://github.com/nataliaburrey) *☎️ +1(805)722-2619 📧 nataliaburrey@gmail.com
 📩 [Samuel Yang](https://github.com/samjinyang) *☎️ +1(714) 609-8073 📧 Samueljinyang@gmail.com
 
 
+## Links
 
+* [Repository copy link]()
+* [Presentation Prezi Website]()
 
 ## License
 
-:star: MIT [LICENSE](https://github.com/JonahLeggett/ML_Algo_Options_Trading/blob/main/LICENSE)
-
-## Links
-
-* [CODE](https://github.com/JonahLeggett/ML_Algo_Options_Trading/blob/main/MLAlgoOptionsTrading.ipynb)
-* [Repository copy link](https://github.com/JonahLeggett/ML_Algo_Options_Trading.git)
-* [Presentation Prezi Website](https://prezi.com/view/IW1jrYNpMi6QvMPH7DrA/)
+:star: MIT [LICENSE](https://github.com/JonahLeggett/Buddy_Token/blob/main/LICENSE)
 
 
 
