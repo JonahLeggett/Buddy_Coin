@@ -1,14 +1,14 @@
 #Import required libraries
-import os
+'''import os
 import json
 from typing import Container
 from web3 import Web3
 from pathlib import Path
-from dotenv import load_dotenv
+from dotenv import load_dotenv'''
 import streamlit as st
 
 #Load in the .env file
-load_dotenv()
+'''load_dotenv()
 
 #Defining and connecting the Web3 provider
 w3 = Web3(Web3.HTTPProvider(os.getenv("WEB3_PROVIDER_URI")))
@@ -29,7 +29,7 @@ def load_contract():
     return contract
 
 #Setting a variable 'contract' to the smart contract loaded in with Web3
-contract = load_contract()
+contract = load_contract()'''
 
 
 
@@ -40,16 +40,11 @@ st.button('Purchase Product')
 st.button('Purchase Buddy Tokens')
 st.button('Return/Exchanges')
 
-
-
 st.header('Purchase Order')
 st.write('Please input your purchase in the sections below:')
 st.text_input('Customer Name')
 st.text_input('Product Type')
 st.text_input('Unit Amount (Weight)')
-st.text_input('Customer Name')
-st.text_input('Customer Name')
-
 
 #Deploy smart contract to sell product in exchange for BUD Tokens
 #Allow entry for information such as:
