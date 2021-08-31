@@ -41,10 +41,16 @@ st.button('Purchase Buddy Tokens')
 st.button('Return/Exchanges')
 
 st.header('Purchase Order')
-st.write('Please input your purchase in the sections below:')
+st.write('Please select your purchase options below:')
 st.text_input('Customer Name')
 st.text_input('Product Type')
-st.text_input('Unit Amount (Weight)')
+st.selectbox('Select Product Amount', ['1/8 oz', '1/4 oz', '1/2 oz', '1 oz'])
+st.number_input('Quantity')
+
+product_amount = st.selectbox('Select Product Amount', ['1/8 oz', '1/4 oz', '1/2 oz', '1 oz'])
+if product_amount = '1/8 oz':
+
+st.button('Confirm Purchase')
 
 #Deploy smart contract to sell product in exchange for BUD Tokens
 #Allow entry for information such as:
