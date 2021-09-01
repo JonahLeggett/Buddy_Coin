@@ -29,24 +29,29 @@ def load_contract():
 #Setting a variable 'contract' to the smart contract loaded in with Web3
 token = load_contract()
 
+#Set up accounts via Web3 connection
 st.image(r'C:\Users\miggs\Desktop\FinTech-Workspace\cannabis_industry\Buddy_Token\resources\BUDlogo2.png')
 st.title('BUDDY COIN EXCHANGE')
 accounts = w3.eth.accounts
 address = st.selectbox('Select Ethereum Account', options = accounts)
 
+#This section is the intro to the customer app for Buddy Token
 st.title('Welcome to the Purchasing App')
 
 st.header('What would you like to do today?')
-st.button('Purchase Product')
-st.button('Purchase Buddy Tokens')
-st.button('Return/Exchanges')
+
+#Ideally, we would want the following 3 buttons to navigate to a different page for the app
+#st.button('Purchase Product')
+#st.button('Purchase Buddy Tokens')
+#st.button('Return/Exchanges')
  
 st.header('Buddy Token Purchase Order')
-token_quantity = st.slider('Select how many Buddy Tokens you want to purchase (whole number increments only):', min_value = 1, max_value = 999999999999999999999999999999999999)
+token_quantity = st.slider('Select how many Buddy Tokens you want to purchase (whole number increments only):', 
+                            min_value = 1, max_value = 999999999999999999999999999999999999)
 st.write(token_quantity)
 st.button('Purchase Buddy Tokens')
 if st.button('Purchase Buddy Tokens'):
-    tx_hash = contract.functions.purchase(amount).call()
+    tx_hash = contract.functions.purchase(token_quantity).call()
 
 st.header('Product Purchase Order')
 st.write('Please select your purchase options below:')
