@@ -5,7 +5,7 @@ from web3 import Web3
 from pathlib import Path
 from dotenv import load_dotenv
 import streamlit as st
-​
+
 #Load in the .env file
 load_dotenv()
  
@@ -15,7 +15,7 @@ w3 = Web3(Web3.HTTPProvider(os.getenv("WEB3_PROVIDER_URI")))
 #Create a function to load the contract into the app
 @st.cache(allow_output_mutation=True)
 def load_contract():
-    with open(Path(r'Buddy_Token\BuddyToken2_abi.json')) as f:
+    with open(Path(r'BuddyToken2_abi.json')) as f:
         buddy_abi = json.load(f)
 
     contract_address = os.getenv("SMART_CONTRACT_ADDRESS")
@@ -29,14 +29,13 @@ def load_contract():
 #Setting a variable 'contract' to the smart contract loaded in with Web3
 token = load_contract()
 
-#Set up accounts via Web3 connection
+#Create welcome section for the app
 st.image(r'C:\Users\miggs\Desktop\FinTech-Workspace\cannabis_industry\Buddy_Token\resources\BUDlogo2.png')
-st.title('BUDDY COIN EXCHANGE')
+st.title('Welcome to the Buddy Token Customer App!')
+
+#Set up accounts via Web3 connection
 accounts = w3.eth.accounts
 address = st.selectbox('Select Ethereum Account', options = accounts)
-
-#This section is the intro to the customer app for Buddy Token
-st.title('Welcome to the Purchasing App')
 
 st.header('What would you like to do today?')
 
@@ -48,11 +47,13 @@ st.header('What would you like to do today?')
 #Creating the purchase order button for Streamlit app
 st.header('Buddy Token Purchase Order')
 token_quantity = st.slider('Select how many Buddy Tokens you want to purchase (whole number increments only):', 
-                            min_value = 1, max_value = 999999999999999999999999999999999999)
+                            min_value = 1, max_value = 10)
 st.write(token_quantity)
-st.button('Purchase Buddy Tokens')
+
 if st.button('Purchase Buddy Tokens'):
     tx_hash = token.functions.purchase(token_quantity).call()
+    st.write('Tokens Purchased!')
+    st.balloons()
 
 st.header('Product Purchase Order')
 st.write('Please select your purchase options below:')
