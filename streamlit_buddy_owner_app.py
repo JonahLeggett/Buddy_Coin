@@ -1,37 +1,38 @@
-#Import required libraries
-'''import os
+#Importing required libraries
+import os
 import json
-from typing import Container
 from web3 import Web3
 from pathlib import Path
-from dotenv import load_dotenv'''
+from dotenv import load_dotenv
 import streamlit as st
-
+​
 #Load in the .env file
-'''load_dotenv()
-
+load_dotenv()
+ 
 #Defining and connecting the Web3 provider
 w3 = Web3(Web3.HTTPProvider(os.getenv("WEB3_PROVIDER_URI")))
-
-#Create a function to load the contract into the pp
+ 
+#Create a function to load the contract into the app
 @st.cache(allow_output_mutation=True)
 def load_contract():
-    with open(Path('./artifacts/BuddyTokenCrowdsale.json')) as f:
+    with open(Path(r'Buddy_Token\BuddyToken2_abi.json')) as f:
         buddy_abi = json.load(f)
-    
+
     contract_address = os.getenv("SMART_CONTRACT_ADDRESS")
 
     contract = w3.eth.contract(
-        address = contract_address, 
-        abi = buddy_abi
+        address=contract_address,
+        abi= buddy_abi
     )
-
     return contract
 
 #Setting a variable 'contract' to the smart contract loaded in with Web3
-contract = load_contract()'''
+token = load_contract()
 
-
+st.image(r'C:\Users\miggs\Desktop\FinTech-Workspace\cannabis_industry\Buddy_Token\resources\BUDlogo2.png')
+st.title('BUDDY COIN EXCHANGE')
+accounts = w3.eth.accounts
+address = st.selectbox('Select Ethereum Account', options = accounts)
 
 st.title('Welcome to the Purchasing App')
 
@@ -39,39 +40,31 @@ st.header('What would you like to do today?')
 st.button('Purchase Product')
 st.button('Purchase Buddy Tokens')
 st.button('Return/Exchanges')
+ 
+st.header('Buddy Token Purchase Order')
+token_quantity = st.slider('Select how many Buddy Tokens you want to purchase (whole number increments only):', min_value = 1, max_value = 999999999999999999999999999999999999)
+st.write(token_quantity)
+st.button('Purchase Buddy Tokens')
+if st.button('Purchase Buddy Tokens'):
+    tx_hash = contract.functions.purchase(amount).call()
 
-st.header('Purchase Order')
+st.header('Product Purchase Order')
 st.write('Please select your purchase options below:')
 st.text_input('Customer Name')
-st.text_input('Product Type')
-st.selectbox('Select Product Amount', ['1/8 oz', '1/4 oz', '1/2 oz', '1 oz'])
-st.number_input('Quantity')
+st.selectbox('Product Type', ['Cannabis', 'Accessories'])
 
 product_amount = st.selectbox('Select Product Amount', ['1/8 oz', '1/4 oz', '1/2 oz', '1 oz'])
-if product_amount = '1/8 oz':
 
-st.button('Confirm Purchase')
+quantity = st.number_input('Quantity')
 
-#Deploy smart contract to sell product in exchange for BUD Tokens
-#Allow entry for information such as:
-#Customer Name
-#Product Type
-#Product Description
-#Unit Amount (weight/size)
-#USD price
-#BUD Token price
-#Timestamp
-#Allow option to return ETHER to customer address in event of return/exchange
-#View customer account balances
-#Transfer 
-#Mint new Tokens
-#View Balance of owner’s ETHER wallet
+total_cost = st.button("Calculate Total Cost")
+if total_cost:
+    st.write(total_cost)
 
-st.header('Product Pricing')
-st.write('1/8 oz = ')
-st.write('1/4 oz = ')
-st.write('1/2 oz = ')
-st.write('1 oz = ')
+confirm_purchase = st.button('Confirm Purchase')
+if confirm_purchase:
+    #Put in order for the product
+    st.write("Purchase confirmed.")
 
 st.header('Product Sales Statistics')
 st.button('Total Sales in USD')
@@ -80,11 +73,3 @@ st.button('Total Sales for 1/4 oz')
 st.button('Total Sales for 1/2 oz')
 st.button('Total Sales for 1 oz')
 
-
-
-st.text_input('Customer Name')
-st.text_input('Product Type')
-st.text_input('Product Description')
-st.number_input('Unit Amount (in ounce partitions)')
-st.number_input('USD Price')
-st.number_input('BUD Token Price')
