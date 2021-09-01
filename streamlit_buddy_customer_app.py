@@ -45,13 +45,14 @@ st.header('What would you like to do today?')
 #st.button('Purchase Buddy Tokens')
 #st.button('Return/Exchanges')
  
+#Creating the purchase order button for Streamlit app
 st.header('Buddy Token Purchase Order')
 token_quantity = st.slider('Select how many Buddy Tokens you want to purchase (whole number increments only):', 
                             min_value = 1, max_value = 999999999999999999999999999999999999)
 st.write(token_quantity)
 st.button('Purchase Buddy Tokens')
 if st.button('Purchase Buddy Tokens'):
-    tx_hash = contract.functions.purchase(token_quantity).call()
+    tx_hash = token.functions.purchase(token_quantity).call()
 
 st.header('Product Purchase Order')
 st.write('Please select your purchase options below:')
