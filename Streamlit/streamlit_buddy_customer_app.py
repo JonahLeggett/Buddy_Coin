@@ -29,13 +29,32 @@ def load_contract():
 #Setting a variable 'contract' to the smart contract loaded in with Web3
 token = load_contract()
 
+#Create a function to load the oracle contract into the app
+@st.cache(allow_output_mutation=True)
+def load_oracle_contract():
+    with open(Path(r'Oracle_abi.json')) as f:
+        oracle_abi = json.load(f)
+
+    contract_address = os.getenv("SMART_CONTRACT_ADDRESS")
+
+    contract = w3.eth.contract(
+        address=contract_address,
+        abi= oracle_abi
+    )
+    return contract
+
+#Setting a variable 'contract' to the smart contract loaded in with Web3
+oracle_contract = load_oracle_contract()
+
 #Create welcome section for the app
-st.image(r'C:\Users\miggs\Desktop\FinTech-Workspace\cannabis_industry\Buddy_Token\resources\BUDlogo2.png')
+st.image(r'resources\BUDlogo2.png')
 st.title('Welcome to the Buddy Token Customer App!')
+eth_price = oracle_contract.functions.getLatestPrice()
 
 #Set up accounts via Web3 connection
 accounts = w3.eth.accounts
-address = st.selectbox('Select Ethereum Account', options = accounts)
+address = st.sidebar.selectbox('Select Ethereum Account', options = accounts)
+st.sidebar.subheader('The value of Ethereum today is:')
 
 st.header('What would you like to do today?')
 
@@ -46,37 +65,40 @@ st.header('What would you like to do today?')
  
 #Creating the purchase order button for Streamlit app
 st.header('Buddy Token Purchase Order')
+
 token_quantity = st.slider('Select how many Buddy Tokens you want to purchase (whole number increments only):', 
                             min_value = 1, max_value = 10)
 st.write(token_quantity)
 
 if st.button('Purchase Buddy Tokens'):
-    tx_hash = token.functions.purchase(token_quantity).call()
+    tx_hash = token.functions.purchase(token_quantity).transact({'from': address})
     st.write('Tokens Purchased!')
     st.balloons()
+
+#Create section for customer to see their token balance
+if st.button('Show Buddy Token Balance Snapshot'):
+    token_balance_snapshot = token.functions.snapshot().call()
+    st.write('Your Buddy Token Balance is...')
+    st.write(token_balance_snapshot)
 
 st.header('Product Purchase Order')
 st.write('Please select your purchase options below:')
 st.text_input('Customer Name')
+
 st.selectbox('Product Type', ['Cannabis', 'Accessories'])
 
-product_amount = st.selectbox('Select Product Amount', ['1/8 oz', '1/4 oz', '1/2 oz', '1 oz'])
+if st.selectbox('Select Product', ['1/8 oz = $1', '1/4 oz = $2', '1/2 oz = $3', '1 oz = $4']) == '1/8 oz':
+    product_price = 1
+    st.write(product_price)
+
 
 quantity = st.number_input('Quantity')
 
-total_cost = st.button("Calculate Total Cost")
-if total_cost:
+total_cost = product_price * quantity
+if st.button('Show Total Cost'):
     st.write(total_cost)
 
 confirm_purchase = st.button('Confirm Purchase')
 if confirm_purchase:
     #Put in order for the product
     st.write("Purchase confirmed.")
-
-st.header('Product Sales Statistics')
-st.button('Total Sales in USD')
-st.button('Total Sales for 1/8 oz')
-st.button('Total Sales for 1/4 oz')
-st.button('Total Sales for 1/2 oz')
-st.button('Total Sales for 1 oz')
-
