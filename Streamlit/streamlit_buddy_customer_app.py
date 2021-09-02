@@ -70,11 +70,13 @@ st.header('What would you like to do today?')
 #Creating the purchase order button for Streamlit app
 st.header('Buddy Token Purchase Order')
 
+#Create a slider widget allowing customers to select the quantity of tokens they want to purchase
 token_quantity = st.slider('Select how many Buddy Tokens you want to purchase (per transaction limits: min. is 1; max is 10.):', 
                             min_value = 1, max_value = 10)
 
 st.write('You are buying', token_quantity, 'Buddy Tokens.')
 
+#Create button to confirm purchase of the tokens
 if st.button('Purchase Buddy Tokens'):
     tx_hash = token.functions.purchase(token_quantity).transact({'from': address})
     st.write('Tokens Purchased!')
@@ -85,20 +87,47 @@ if st.button('Show Buddy Token Balance Snapshot'):
     token_balance_snapshot = token_quantity
     st.write('Your Buddy Token Balance is', token_balance_snapshot, 'Buddy Tokens.')
 
+#Create section for customer to purchase store product
 st.header('Product Purchase Order')
 st.write('Please select your purchase options below:')
-st.text_input('Customer Name')
 
+#Create a selection box of the product that the customer wants to purchase
 st.selectbox('Product Type', ['Cannabis', 'Accessories'])
 
-st.selectbox('Select Product', ['1/8 oz', '1/4 oz', '1/2 oz', '1 oz'])
+#Create a list of product options
+product_options = ['1/8 oz', '1/4 oz', '1/2 oz', '1 oz']
 
+#Set variables to the product selection and quantity to calculate the total cost
+selection = st.selectbox('Select Product', product_options)
 quantity = st.number_input('Quantity')
 
-total_cost = quantity
-if st.button('Show Total Cost'):
-    st.write(total_cost)
+#Create a function to show the customer the total cost of their product purchase
+@st.cache(suppress_st_warning=True)
+def get_total_cost(selection, quantity):
+    price = 0
+    if selection == '1/8 oz':
+        price = 10
+        total_cost = price * quantity
+        st.write('The total costs for your order is $', round(total_cost, 2), '.')
+    elif selection == '1/4 oz':
+        price = 18
+        total_cost = price * quantity
+        st.write('The total costs for your order is $', round(total_cost, 2), '.')
+    elif selection == '1/2 oz':
+        price = 26
+        total_cost = price * quantity
+        st.write('The total costs for your order is $', round(total_cost, 2), '.')
+    elif selection == '1 oz':
+        price = 34
+        total_cost = price * quantity
+        st.write('The total costs for your order is $', round(total_cost, 2), '.')
 
+#Create button to display total cost of product purchase to customer
+if st.button('Show Total Cost'):
+    get_total_cost(selection, quantity)
+
+
+#This button is still in process, to confirm the store product purchase from the store
 confirm_purchase = st.button('Confirm Purchase')
 if confirm_purchase:
     #Put in order for the product
