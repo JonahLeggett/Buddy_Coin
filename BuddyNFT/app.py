@@ -48,8 +48,8 @@ nft_uri = st.text_input("The URI to the NFT")
 
 if st.button("Register NFT"):
 
-    # Use the contract to send a transaction to the registerNFT function
-    tx_hash = contract.functions.registerNFT(
+    # Use the contract to send a transaction to the registerArtwork function
+    tx_hash = contract.functions.registerArtwork(
         address,
         nft_uri
     ).transact({'from': address, 'gas': 1000000})
@@ -70,17 +70,17 @@ tokens = contract.functions.balanceOf(selected_address).call()
 
 st.write(f"This address owns {tokens} NFT")
 
-nft_id = st.selectbox("NFT's", list(range(tokens)))
+token_id = st.selectbox("NFT's", list(range(tokens)))
 
 if st.button("Display"):
 
     # Use the contract's `ownerOf` function to get the NFT owner
-    owner = contract.functions.ownerOf(nft_id).call()
+    owner = contract.functions.ownerOf(token_id).call()
 
     st.write(f"The token is registered to {owner}")
 
     # Use the contract's `tokenURI` function to get the NFT's URI
-    nft_uri = contract.functions.nftURI(nft_id).call()
+    token_uri = contract.functions.tokenURI(token_id).call()
 
-    st.write(f"The nftURI is {nft_uri}")
-    st.image(nft_uri)
+    st.write(f"The nftURI is {token_uri}")
+    st.image(token_uri)
