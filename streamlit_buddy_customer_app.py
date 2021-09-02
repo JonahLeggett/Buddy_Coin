@@ -15,7 +15,7 @@ w3 = Web3(Web3.HTTPProvider(os.getenv("WEB3_PROVIDER_URI")))
 #Create a function to load the contract into the app
 @st.cache(allow_output_mutation=True)
 def load_contract():
-    with open(Path(r'BuddyToken2_abi.json')) as f:
+    with open(Path(r'abi/BuddyToken2_abi.json')) as f:
         buddy_abi = json.load(f)
 
     contract_address = os.getenv("SMART_CONTRACT_ADDRESS")
@@ -32,10 +32,10 @@ token = load_contract()
 #Create a function to load the oracle contract into the app
 @st.cache(allow_output_mutation=True)
 def load_oracle_contract():
-    with open(Path(r'Oracle_abi.json')) as f:
+    with open(Path(r'abi/Oracle_abi.json')) as f:
         oracle_abi = json.load(f)
 
-    contract_address = os.getenv("ORACLE_ADDRESS")
+    contract_address = os.getenv("SMART_CONTRACT_ADDRESS")
 
     contract = w3.eth.contract(
         address=contract_address,
@@ -74,7 +74,10 @@ st.header('Buddy Token Purchase Order')
 token_quantity = st.slider('Select how many Buddy Tokens you want to purchase (per transaction limits: min. is 1; max is 10.):', 
                             min_value = 1, max_value = 10)
 
-st.write('You are buying', token_quantity, 'Buddy Tokens.')
+if token_quantity == 1:
+    st.write('You are buying', token_quantity, 'Buddy Token.')
+else:
+    st.write('You are buying', token_quantity, 'Buddy Tokens.')
 
 #Create button to confirm purchase of the tokens
 if st.button('Purchase Buddy Tokens'):
@@ -95,32 +98,32 @@ st.write('Please select your purchase options below:')
 st.selectbox('Product Type', ['Cannabis', 'Accessories'])
 
 #Create a list of product options
-product_options = ['1/8 oz', '1/4 oz', '1/2 oz', '1 oz']
+product_options = ['1/8 oz - $10', '1/4 oz - $18', '1/2 oz - $26', '1 oz - $34']
 
 #Set variables to the product selection and quantity to calculate the total cost
-selection = st.selectbox('Select Product', product_options)
-quantity = st.number_input('Quantity')
+selection = st.selectbox('Select Product Unit', product_options)
+quantity = st.number_input('Quantity - Please use whole numbers only.')
 
 #Create a function to show the customer the total cost of their product purchase
 @st.cache(suppress_st_warning=True)
 def get_total_cost(selection, quantity):
     price = 0
-    if selection == '1/8 oz':
+    if selection == '1/8 oz - $10':
         price = 10
         total_cost = price * quantity
-        st.write('The total costs for your order is $', round(total_cost, 2), '.')
-    elif selection == '1/4 oz':
+        st.write('The total cost for your order is $', round(total_cost, 2), '.')
+    elif selection == '1/4 oz - $18':
         price = 18
         total_cost = price * quantity
-        st.write('The total costs for your order is $', round(total_cost, 2), '.')
-    elif selection == '1/2 oz':
+        st.write('The total cost for your order is $', round(total_cost, 2), '.')
+    elif selection == '1/2 oz - $26':
         price = 26
         total_cost = price * quantity
         st.write('The total costs for your order is $', round(total_cost, 2), '.')
-    elif selection == '1 oz':
+    elif selection == '1 oz - $34':
         price = 34
         total_cost = price * quantity
-        st.write('The total costs for your order is $', round(total_cost, 2), '.')
+        st.write('The total cost for your order is $', round(total_cost, 2), '.')
 
 #Create button to display total cost of product purchase to customer
 if st.button('Show Total Cost'):
