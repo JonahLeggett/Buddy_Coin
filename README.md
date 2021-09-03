@@ -100,13 +100,13 @@ https://www.youtube.com/watch?v=ltaTwjhq5u8
 
 
 - 2 Solidity smart contracts created:
-- 
-##### BuddyToken.sol 
+
+##### BuddyToken.sol (ERC-20)
 
 <img width="1103" alt="Screen Shot 2021-09-02 at 8 11 44 PM" src="https://user-images.githubusercontent.com/80833988/131945139-7c7552da-785d-4cd6-a489-e88ce2b6cc4c.png">
 
  
-##### BuddyNFT.sol 
+##### BuddyNFT.sol (ERC-721)
 
 <img width="963" alt="Screen Shot 2021-09-02 at 8 14 07 PM" src="https://user-images.githubusercontent.com/80833988/131945266-40e99ed4-d5aa-42f3-97e0-74e20e6b6b0e.png">
 
@@ -116,8 +116,7 @@ https://www.youtube.com/watch?v=ltaTwjhq5u8
 
 https://user-images.githubusercontent.com/80833988/131944463-e379c6e8-929f-42d6-8285-eb19e970c375.mov
 
-And this is the final version of a coupon you can find in resources too
-
+And this is the final version of an NFT coupon:
 
 https://user-images.githubusercontent.com/80833988/131944536-44c37dc3-31fc-4037-9a7b-8c0b62449cb2.mp4
 
