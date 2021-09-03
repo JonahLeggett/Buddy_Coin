@@ -10,26 +10,25 @@
 
 
 ## Table of content 📔
-- [An executive summary](https://github.com/JonahLeggett/ML_Algo_Options_Trading/blob/main/README.md#an-executive-summary)
-    - [How this project relates to fintech and machine learning?](https://github.com/JonahLeggett/ML_Algo_Options_Trading/blob/main/README.md#how-this-project-relates-to-fintech-and-machine-learning)
-- [Software Version Control](https://github.com/JonahLeggett/ML_Algo_Options_Trading/blob/main/README.md#software-version-control)
-- [Data Collection and Preparation](https://github.com/JonahLeggett/ML_Algo_Options_Trading/blob/main/README.md#data-collection-and-preparation-10-points)
-    - [Libraries](https://github.com/JonahLeggett/ML_Algo_Options_Trading/blob/main/README.md#libraries)
-- [Machine learning](https://github.com/JonahLeggett/ML_Algo_Options_Trading/blob/main/README.md#machine-learning-40-points)
-- [Documentation](https://github.com/JonahLeggett/ML_Algo_Options_Trading/blob/main/README.md#documentation)
-- [Presentation](https://github.com/JonahLeggett/ML_Algo_Options_Trading/blob/main/README.md#presentation)
-- [How to install](https://github.com/JonahLeggett/ML_Algo_Options_Trading/blob/main/README.md#how-to-install)
-- [Our team](https://github.com/JonahLeggett/ML_Algo_Options_Trading/blob/main/README.md#team)
-- [Licence](https://github.com/JonahLeggett/ML_Algo_Options_Trading/blob/main/README.md#license)
-- [Links](https://github.com/JonahLeggett/ML_Algo_Options_Trading/blob/main/README.md#links)
+- [I. PROJECT OVERVIEW](https://github.com/JonahLeggett/Buddy_Token#i-project-overview)
+    - [An executive summary](https://github.com/JonahLeggett/Buddy_Token#an-executive-summary)
+- [II. TECHNICAL REQUIREMENTS](https://github.com/JonahLeggett/Buddy_Token#ii-technical-requirements)
+    -[Software Version Control](https://github.com/JonahLeggett/Buddy_Token#software-version-control)
+    -[Data Collection and Preparation](https://github.com/JonahLeggett/Buddy_Token#data-collection-and-preparation)
+    -[Development](https://github.com/JonahLeggett/Buddy_Token#development)
+    -[Documentation](https://github.com/JonahLeggett/Buddy_Token#documentation)
+- [How to install](https://github.com/JonahLeggett/Buddy_Token#how-to-install)
+- [Our team](https://github.com/JonahLeggett/Buddy_Token#team)
+- [Links](https://github.com/JonahLeggett/Buddy_Token#links)
+- [Licence](https://github.com/JonahLeggett/Buddy_Token/blob/main/LICENSE)
 
 
 ## I. PROJECT OVERVIEW
 
-
 ## An executive summary
 
 ##### Identify the Problem:
+
 In the 21st century we are finally witnessing the legalization of CANNABIS. America has led the charge to decriminalize medical and recreational use of marijuana.    
 
 Cannabis is now legal in 19 states- but not on the federal level. This means that small business owners such as dispensaries, manufacturers, & vendors cannot legally have a bank account or credit line.
@@ -54,7 +53,7 @@ Moreover Etherium is an investable asset- which grows over time, offers a hedge 
 
 
 
-##### FINTECH solution \
+##### FINTECH solution 
 
 <img width="462" alt="Screen Shot 2021-09-02 at 7 50 38 PM" src="https://user-images.githubusercontent.com/80833988/131943299-9f861fe8-f9e6-45d0-b0ba-91f90e971dad.png">
 
@@ -65,7 +64,7 @@ Moreover Etherium is an investable asset- which grows over time, offers a hedge 
 ## II. TECHNICAL REQUIREMENTS 
 
 
-#### Software Version Control 
+### Software Version Control 
 
 
 - Repository [BUDDY TOKEN](https://github.com/JonahLeggett/Buddy_Token.git) was created on a GitHub.
@@ -76,7 +75,7 @@ Moreover Etherium is an investable asset- which grows over time, offers a hedge 
 
 - Repository organized, relevant information about the project files included. 
 
-#### Data Collection and Preparation
+### Data Collection and Preparation
 
 <img width="502" alt="Screen Shot 2021-09-02 at 7 54 57 PM" src="https://user-images.githubusercontent.com/80833988/131943655-e0063bde-0903-4f00-9e26-389c5ca33bab.png">
 
@@ -93,9 +92,7 @@ Ganache allows us to quickly fire up a personal Ethereum blockchain which you ca
 IPFS The InterPlanetary File System is a protocol and peer-to-peer network for storing and sharing data in a distributed file system. IPFS uses content-addressing to uniquely identify each file in a global namespace connecting all computing devices.
 
 
-
-
-#### Development
+### Development
 
 - Streamlit application created. You can find a demonstration following link
 
@@ -124,7 +121,7 @@ And this is the final version of a coupon you can find in resources too
 
 https://user-images.githubusercontent.com/80833988/131944536-44c37dc3-31fc-4037-9a7b-8c0b62449cb2.mp4
 
-
+##### Libraries
 We used following Open Zeppelin lib, some of them was not covered in the class
 
 ```
