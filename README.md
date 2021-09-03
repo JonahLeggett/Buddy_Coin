@@ -6,12 +6,6 @@
 
 
 
-
-> "
-"
-
-
-
 📌 For our  graduation project our team: Natalia Burrey, Jonah Leggett, Miguel Ortega and Samuel Yang - assumed a role of a Fintech professional and very exited to introduce a  blockchain-based solution for a real world problem
 
 
@@ -35,18 +29,37 @@
 
 ## An executive summary
 
-<img width="577" alt="Screen Shot 2021-09-02 at 7 49 34 PM" src="https://user-images.githubusercontent.com/80833988/131943209-a9e246fb-f312-43e5-aac5-83d9f835d1bf.png">
+##### Identify the Problem:
+In the 21st century we are finally witnessing the legalization of CANNABIS. America has led the charge to decriminalize medical and recreational use of marijuana.    
 
-<img width="687" alt="Screen Shot 2021-09-02 at 7 50 08 PM" src="https://user-images.githubusercontent.com/80833988/131943257-98293b5a-a0a1-4a40-a38a-4ff9e0a18136.png">
+Cannabis is now legal in 19 states- but not on the federal level. This means that small business owners such as dispensaries, manufacturers, & vendors cannot legally have a bank account or credit line.
 
-##### FINTECH solution 
+Cannabis customers must withdraw cash from their bank accounts to make a purchase.
 
-<img width="585" alt="Screen Shot 2021-09-02 at 7 52 29 PM" src="https://user-images.githubusercontent.com/80833988/131943465-56478aa6-1f2f-4413-88db-b46daba9cbda.png">
+Cannabis business owners have to operate solely with cash. 
 
+This is a complex problem and has to be addressed on a federal level.
+
+In the meantime we would like to introduce a FinTech solution:
+
+BUDDY Token - Ethereum based cryptocurrency .
+
+##### WHY CRYPTO?
+
+We use the crypto to attract new type of customer, who is more engaged and spends more
+
+Programmable money is a  transparent, secure  way to control the capital
+
+Moreover Etherium is an investable asset- which grows over time, offers a hedge for inflation.
+
+
+
+##### FINTECH solution \
 
 <img width="462" alt="Screen Shot 2021-09-02 at 7 50 38 PM" src="https://user-images.githubusercontent.com/80833988/131943299-9f861fe8-f9e6-45d0-b0ba-91f90e971dad.png">
 
 
+<img width="585" alt="Screen Shot 2021-09-02 at 7 52 29 PM" src="https://user-images.githubusercontent.com/80833988/131943465-56478aa6-1f2f-4413-88db-b46daba9cbda.png">
 
 
 ## II. TECHNICAL REQUIREMENTS 
@@ -90,8 +103,16 @@ https://www.youtube.com/watch?v=ltaTwjhq5u8
 
 
 - 2 Solidity smart contracts created:
-  * BuddyToken.sol -
-  * BuddyNFT.sol -
+- 
+##### BuddyToken.sol 
+
+<img width="1103" alt="Screen Shot 2021-09-02 at 8 11 44 PM" src="https://user-images.githubusercontent.com/80833988/131945139-7c7552da-785d-4cd6-a489-e88ce2b6cc4c.png">
+
+ 
+##### BuddyNFT.sol 
+
+<img width="963" alt="Screen Shot 2021-09-02 at 8 14 07 PM" src="https://user-images.githubusercontent.com/80833988/131945266-40e99ed4-d5aa-42f3-97e0-74e20e6b6b0e.png">
+
 
 - Following video is demonstrating the application NFT contract for creating a coupon
 
@@ -101,10 +122,23 @@ https://user-images.githubusercontent.com/80833988/131944463-e379c6e8-929f-42d6-
 And this is the final version of a coupon you can find in resources too
 
 
-
 https://user-images.githubusercontent.com/80833988/131944536-44c37dc3-31fc-4037-9a7b-8c0b62449cb2.mp4
 
 
+We used following Open Zeppelin lib, some of them was not covered in the class
+
+```
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Snapshot.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/security/Pausable.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/draft-ERC20Permit.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20FlashMint.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/token/ERC721/ERC721Full.sol"
+```
 
 #### Documentation 
 * You can find Code written in Solidity, well commented with concise, relevant notes. 
